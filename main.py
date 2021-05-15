@@ -22,7 +22,11 @@ def cache_zip(zip_file_path, cache_dir_path):
 
 
 def cached_files():
-    return glob.glob('cache/*')
+    directory = "cache"
+    abs_list = []
+    for file in os.listdir(directory):
+        abs_list.append(f"{os.path.abspath(directory)}/{file}")
+    return abs_list
 
 
 def find_password(file_paths):
